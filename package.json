@@ -10,8 +10,7 @@
     "type": "git",
     "url": "https://github.com/rodrigosborges/node-fingerprint-server.git"
   },
-  "author": "Emile Nijssen",
-  "license": "ISC",
+  "author": "Rodrigo Soares BOrges",
   "dependencies": {
     "body-parser": "^1.15.2",
     "cors": "^2.8.1",
