@@ -14,10 +14,6 @@ const reader = new FingerprintReader({
 	deviceId		: process.env.FPRINT_SERVER_DEVICE || yargs.device || 'Digital Persona U.are.U 4000/4000B/4500',
 	debug			: true
 })
-	.on('identify', _onIdentify)
-	.on('user-add', _onUserAdd)
-	.on('user-update', _onUserUpdate)
-	.on('user-delete', _onUserDelete)
 	.init();
 
 const server = express()
@@ -44,9 +40,9 @@ const server = express()
 
 	})
 
-	.post( '/api/biometry', ( req, res ) => {
+	.get( '/api/biometry/:id', ( req, res ) => {
 
-		reader._addBiometry( req.body, ( err, result ) => {
+		var result = reader._addBiometry( req.params.id, result => {
 			return res.locals.success( result );
 		});
 
@@ -63,21 +59,3 @@ const server = express()
 	.listen( port, () => {
 		console.log(`fprint server running on port ${port}...`);
 	});
-
-const io = socketIo( server );
-
-function _onIdentify( userId, userData ) {
-	io.sockets.emit('identify', userId, userData );
-}
-
-function _onUserAdd( userId, userData ) {
-	io.sockets.emit('user-add', userId, userData );
-}
-
-function _onUserUpdate( userId, userData ) {
-	io.sockets.emit('user-update', userId, userData );
-}
-
-function _onUserDelete( userId ) {
-	io.sockets.emit('user-delete', userId );
-}
