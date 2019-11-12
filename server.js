@@ -28,8 +28,8 @@ io.on('connection', function(connection){
 		reader._startIdentifyServer( connection )
 	})
 
-	connection.on('users', page => {
-		reader._getUsers( connection, page )
+	connection.on('users', (page, search) => {
+		reader._getUsers( connection, page, search )
 	})
 
 	connection.on('addBiometry', id => {
