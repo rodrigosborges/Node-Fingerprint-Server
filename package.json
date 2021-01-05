@@ -12,7 +12,7 @@
   },
   "author": "Rodrigo Soares BOrges",
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "body-parser": "^1.15.2",
     "cors": "^2.8.1",
     "express": "^4.14.0",
