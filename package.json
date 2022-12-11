@@ -15,7 +15,7 @@
     "axios": "^0.19.0",
     "body-parser": "^1.15.2",
     "cors": "^2.8.1",
-    "express": "^4.14.0",
+    "express": "^4.17.3",
     "fs-extra": "^0.30.0",
     "node-fprint": "0.0.9",
     "node-uuid": "^1.4.7",
